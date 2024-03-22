@@ -10,7 +10,7 @@ export const metadata = {
     default:"Next.js 14 Homepage",
     template: "%s | Next.js 14 App",
   },
-  description: "Nexr.js starter app description",
+  description: "Nexr.js starter app description"
 };
 
 export default function RootLayout({ children }) {

@@ -10,12 +10,14 @@ export const addPost = async (prevState, formData) => {
   //    const desc = formData.get("desc");
   //    const slug = formData.get("slug");
 
-  const { title, desc, slug, userId } = Object.fromEntries(formData);
+  const { title, desc, slug, userId, img } = Object.fromEntries(formData);
+  console.log(" ye raha", title, desc, slug, userId);
 
   try {
     connectToDb()
     const newPost = new Post({
       title,
+      img,
       desc,
       slug,
       userId,
@@ -24,6 +26,28 @@ export const addPost = async (prevState, formData) => {
     console.log("SAVE TO DB");
     revalidatePath("/blog");
     revalidatePath("/admin");
+  } catch (error) {
+    console.log(error);
+    return { error: "Something went wrong" };
+  }
+};
+export const editPost = async (prevState, formData) => {
+  //    const title = formData.get("title");
+  //    const desc = formData.get("desc");
+  //    const slug = formData.get("slug");
+  const { title, desc, slug, userId, img, id } = Object.fromEntries(formData);
+  console.log(" ye raha", title, desc, slug, userId, img, id);
+
+  const updateData = await {
+    title, img, desc, slug}
+
+  try {
+    await connectToDb()
+    const newPost = await Post.findByIdAndUpdate(id, updateData, {new:true, revalidatePath:true});
+    console.log("Update TO DB", newPost);
+    revalidatePath("/blog");
+    revalidatePath("/admin");
+    return {success:true}
   } catch (error) {
     console.log(error);
     return { error: "Something went wrong" };
@@ -40,9 +64,10 @@ export const deletePost = async (formData) => {
   try {
     connectToDb();
     await Post.findByIdAndDelete(id);
-    console.log("deleted from db");
+    console.log("deleted from db", id);
     revalidatePath("/blog");
     revalidatePath("/admin");
+    window.location.href = '/admin';
   } catch (error) {
     console.log(error);
     return { error: "Something went wrong" };

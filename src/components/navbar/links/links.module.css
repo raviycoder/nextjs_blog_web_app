@@ -4,6 +4,11 @@
   gap: 10px;
 }
 
+.imageIcon {
+  border-radius: 50%;
+  margin-left: 20px;
+}
+
 .logout {
   padding: 10px;
   cursor: pointer;

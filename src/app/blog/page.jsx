@@ -22,8 +22,7 @@ const BlogPage = async () => {
   const posts = await getData()
   return (
     <div className={styles.container}>
-      {posts.map(post=>(<div key={post.id} className={styles.post}>
-        {" "}
+      {posts.map(post=>(<div key={post.slug} className={styles.post}>
         <PostCard post={post} />
       </div>))}
     </div>

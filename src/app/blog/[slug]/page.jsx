@@ -4,16 +4,16 @@ import Image from "next/image";
 import PostUser from "@/components/postUser/postUser";
 import { getPost } from "@/lib/data";
 
-export const generateMetadata = async ({params})=>{
-  const {slug} = params;
+// export const generateMetadata = async ({params})=>{
+//   const {slug} = params;
 
-  const post = await getPost(slug);
+//   const post = await getPost(slug);
 
-  return{
-    title:post.title,
-    description:post.desc,
-  }
-}
+//   return{
+//     title:post.title,
+//     description:post.desc,
+//   }
+// }
 
 const getData = async (slug) => {
   const res = await fetch(`http://localhost:3000/api/blog/${slug}`)
@@ -28,13 +28,18 @@ const getData = async (slug) => {
 const SinglePostPage = async ({ params }) => {
   const { slug } = params;
   const post = await getData(slug);
+  const date = new Date(post.createdAt);
+    
+  // Format the date into a user-friendly format
+  const options = { year: 'numeric', month: 'long', day: 'numeric' };
+  const formattedDate = date.toLocaleDateString('en-IN', options);
   return (
     <div className={styles.container}>
       <div className={styles.imgContainer}>
         {post.img && <Image
           src={post.img}
           fill
-          alt=""
+          alt={post.slug}
           className={styles.img}
         />}
       </div>
@@ -49,10 +54,10 @@ const SinglePostPage = async ({ params }) => {
           </div> */}
           <div className={styles.detailText}>
             <span className={styles.detailTitle}>Published</span>
-            <span className={styles.detailValue}>{post.createdAt?.toString().slice(4, 16)}</span>
+            <span className={styles.detailValue}>{formattedDate}</span>
           </div>
         </div>
-        <div className={styles.content}>{post?.desc}</div>
+        <div className={styles.content} dangerouslySetInnerHTML={{ __html: post.desc }} />
       </div>
     </div>
   );

@@ -1,8 +1,6 @@
 import React from 'react';
 import styles from './contact.module.css'
 import Image from 'next/image';
-import dynamic from 'next/dynamic';
-const HydrationTest = dynamic(()=>import('@/components/hydrationTest'), {ssr:false})
 
 
 export const metadata = {
@@ -17,7 +15,6 @@ const ContactPage = () => {
       <div className={styles.imgContainer}>
         <Image src="/contact.png" alt="" fill className={styles.img} />
       </div>
-      <HydrationTest/>
       <div className={styles.formContainer}>
         <form action="" className={styles.form}>
           <input type="text" placeholder='Name and Surname' name="name" id="name" />

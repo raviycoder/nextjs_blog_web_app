@@ -4,7 +4,6 @@ import styles from "./login.module.css";
 import React from "react";
 
 const LoginPage = () => {
-
   // auth?.user?.isAdmin && Router.path("/")
   return (
     <div className={styles.container}>
@@ -12,7 +11,8 @@ const LoginPage = () => {
         <form action={handleGithubLogin}>
           <button className={styles.github}>
             {" "}
-            <svg className={styles.githubIcon}
+            <svg
+              className={styles.githubIcon}
               xmlns="http://www.w3.org/2000/svg"
               data-name="Layer 1"
               viewBox="0 0 24 24"

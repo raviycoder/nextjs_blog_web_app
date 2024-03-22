@@ -1,0 +1,21 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.imgContainer {
+  height: 200px;
+}
+
+.image {
+  border-radius: 50%;
+}
+
+.infoContainer td {
+    background: var(--btn);
+    border-radius: 5px;
+    padding: 17px;
+    font-weight: 600;
+}

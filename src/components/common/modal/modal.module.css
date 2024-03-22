@@ -1,0 +1,83 @@
+.container1 {
+  display: none;
+  animation: container2 0.2s ease-in-out both;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 20;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container2 {
+  display: flex;
+  flex-direction: column;
+  position:fixed;
+  border-radius: 20px;
+  padding: 40px;
+  justify-self: center;
+  align-self: center;
+  max-width: 600px;
+  background-color: #242571;
+  animation: container2 0.2s ease-in-out both;
+}
+  @keyframes container2{
+    0% {
+      transform: scale(0);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  .content h2{
+    margin-bottom: 20px;
+    color: rgb(222, 70, 70);
+  }
+
+  .buttons {
+    margin-top: 20px;
+    display: flex;
+  }
+
+  .cancel {
+    padding: 20px;
+    margin-left: 10px;
+    cursor: pointer;
+    background-color: var(--btn);
+    border: none;
+    border-radius: 5px;
+    color: var(--textColor);
+    font-weight: bold;
+  }
+
+  .buttons form button {
+    padding: 20px;
+    margin-left: 10px;
+    cursor: pointer;
+    background-color: rgb(239, 68, 68);
+    border: none;
+    border-radius: 5px;
+    color: var(--textColor);
+    font-weight: bold;
+  }
+  
+.buttons button:hover{
+    background-color: #3162d6;
+}
+.buttons button:first-child:hover{
+    background-color: rgb(179, 66, 66);
+}
+.buttons button:active{
+    background-color: #4a79e7;
+}
+
