@@ -1,10 +1,6 @@
 import { addPost, deletePost } from "@/lib/action";
 
 const ServerActionTestPage = () => {
-    // const actionInComponent = async () => {
-    //     "use server"
-    //     console.log("It works!")
-    // }
     return (
         <div>
             <form action={addPost}>
