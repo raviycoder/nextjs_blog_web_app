@@ -44,7 +44,7 @@ const AdminPostForm = ({ userId }) => {
       />
       <input type="hidden" name="desc" id="desc" value={content} />
       <button type="submit" onClick={()=>window.location.reload()}>Add</button>
-      {state?.error && <p>{state.error.message}</p>}
+      {state?.error && <p>{state.error}</p>}
     </form>
   );
 };

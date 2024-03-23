@@ -1,4 +1,7 @@
+import {getUser} from '@/lib/data'
+
 export const authConfig = {
+
   pages: {
     signIn: "/login",
   },
@@ -20,9 +23,10 @@ export const authConfig = {
     },
     authorized({ auth, request }) {
       const user = auth?.user;
-      const isOnAdminPanel = request.nextUrl?.pathname.startsWith("/admin");
-      const isOnBlogPage = request.nextUrl?.pathname.startsWith("/blog");
-      const isOnLoginPage = request.nextUrl?.pathname.startsWith("/login");
+      const isOnAdminPanel = request.nextUrl.pathname.startsWith("/admin");
+      const isOnBlogPage = request.nextUrl.pathname.startsWith("/blog");
+      const isOnLoginPage = request.nextUrl.pathname.startsWith("/login");
+      const isProfilePage = request.nextUrl.pathname.startsWith("/profile");
 
     //   ONLY ADMIN CAN REACH THE ADMIN DASHBOARD
 
@@ -33,6 +37,9 @@ export const authConfig = {
     // ONLY AUTHENTICATED USERS CAN REACH THE BLOG PAGE
 
     if(isOnBlogPage && !user){
+        return false;
+    }
+    if(isProfilePage && !user){
         return false;
     }
 

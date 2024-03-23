@@ -6,10 +6,11 @@ import CredentialProvider from "next-auth/providers/credentials";
 import { User } from "./models";
 import { authConfig } from "./auth.config";
 
-const login = async(credentials) => {
+export const login = async(credentials) => {
     try {
         connectToDb();
         const user = await User.findOne({email: credentials.email});
+        console.log("credentials",user)
         if(!user){
             throw new Error("Wrong credentials!")
         }
@@ -61,6 +62,8 @@ export const { handlers:{GET, POST}, auth, signIn, signOut } = NextAuth({ ...aut
                     })
                     await newUser.save();
                 }
+
+                return user
                 
             } catch (error) {
                 console.log(error);

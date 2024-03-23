@@ -25,6 +25,7 @@ const links = [
   },
 ];
 const Links = ({session}) => {
+  console.log("bhai bhai",session)
   const [open, setOpen] = useState(false);
 
   return (
@@ -38,7 +39,7 @@ const Links = ({session}) => {
             {" "}
             {session.user?.isAdmin && <NavLink item={{ title: "Admin", path: "/admin" }} />}
             <form action={handleLogout}><button className={styles.logout}>Logout</button></form>
-            <Link href="/profile">
+            <Link href={`/profile/${session.id}`}>
               <Image alt="user" src="/noavatar.png" height={40} width={40} className={styles.imageIcon}></Image>
         </Link>
            
