@@ -15,7 +15,7 @@ const AdminPosts = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("/api/blog", {next:{revalidate:3600}});
+        const response = await fetch("https://nextjs-blog-web-app-eight.vercel.app/api/blog", {next:{revalidate:3600}});
         if (!response.ok) {
           throw new Error('Failed to fetch data');
         }
