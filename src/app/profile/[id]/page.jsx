@@ -1,5 +1,4 @@
 import ProfileCard from "@/components/profileInfo/ProfileCard";
-import {login} from "@/lib/auth";
 import { getUser } from "@/lib/data";
 
 const Profile = async (props) => {

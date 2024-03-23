@@ -50,7 +50,7 @@ const ProfileCard = async ({ user }) => {
       </div>
     );
   } else {
-    return <GitUserProfileCard session={session} />;
+    return <><GitUserProfileCard session={session} /></>;
   }
 };
 

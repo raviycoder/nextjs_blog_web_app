@@ -1,5 +1,3 @@
-import {getUser} from '@/lib/data'
-
 export const authConfig = {
 
   pages: {

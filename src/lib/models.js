@@ -29,9 +29,6 @@ const userSchema = new mongoose.Schema(
     image: {
       type: String,
     },
-    gitId:{
-      type: String
-    },
     isAdmin: {
       type: Boolean,
       default: false,

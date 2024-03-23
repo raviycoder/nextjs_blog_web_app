@@ -2,7 +2,6 @@ import React, { Suspense } from "react";
 import styles from "./signlePost.module.css";
 import Image from "next/image";
 import PostUser from "@/components/postUser/postUser";
-import { getPost } from "@/lib/data";
 
 // export const generateMetadata = async ({params})=>{
 //   const {slug} = params;

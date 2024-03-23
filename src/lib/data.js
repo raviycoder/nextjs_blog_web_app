@@ -1,7 +1,6 @@
 import { Post, User } from "./models";
 import { connectToDb } from "./utils";
 import { unstable_noStore as noStore } from "next/cache";
-import { getProviders } from "next-auth/react"
 // const users = [
 //     {id:1, name:'John'},
 //     {id:2, name:'Jane'}
@@ -50,13 +49,13 @@ export const getUser = async (id) => {
 
   noStore();
   try {
-    if(id.length >= 21){
-    connectToDb();
-    const user = await User.findById(id);
-    console.log("he hello");
+    if (id.length >= 21) {
+      connectToDb();
+      const user = await User.findById(id);
+      console.log("he hello");
       return user;
-    }else{
-      return null
+    } else {
+      return null;
     }
   } catch (error) {
     throw new Error("Failed to fetch user!");

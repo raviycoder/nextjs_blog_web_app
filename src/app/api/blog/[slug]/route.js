@@ -20,7 +20,7 @@ export const DELETE = async (request, {params})=>{
     const {slug} = params;
     try {
         connectToDb()
-        const post = await Post.deleteOne({slug})
+        await Post.deleteOne({slug})
         return NextResponse.json("Post Deleted")
         
     } catch (error) {
